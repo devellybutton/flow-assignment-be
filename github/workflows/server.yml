@@ -1,0 +1,29 @@
+name: file_block
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: excusting remote ssh commands
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{secrets.REMOTE_IP}}
+          username: ${{secrets.REMOTE_USER}}
+          key: ${{secrets.REMOTE_PRIVATE_KEY}}
+          port: ${{secrets.REMOTE_SSH_PORT}}
+          script: |
+            cd /home/ubuntu/flow-assignment-be
+            git pull origin master
+            pm2 kill
+            npm i
+            npm run pm2:production
