@@ -1,5 +1,5 @@
 // const API_BASE = "http://localhost:3000";
-const API_BASE = "http://3.38.191.18:3000";
+const API_BASE = "http://3.38.191.18:3000/api";
 
 // 상태
 const state = {
@@ -37,7 +37,7 @@ function updateCounter() {
 
 async function fetchAllExtensions() {
   try {
-    const res = await fetch(`${API_BASE}/`);
+    const res = await fetch(`${API_BASE}/extensions`);
     const data = await res.json();
 
     state.fixedExtensions = data.fixedExtensions;
