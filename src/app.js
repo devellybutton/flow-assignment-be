@@ -3,6 +3,7 @@ const cors = require("cors");
 const path = require("path");
 const { swaggerUi, swaggerDocument } = require("./config/swagger");
 const extensionRoute = require("./routes/extensionRoute");
+const viewRoutes = require("./routes/view.routes");
 
 const app = express();
 
@@ -11,6 +12,8 @@ app.use(
     origin: [
       "http://127.0.0.1:5500",
       "http://localhost:5500",
+      "http://localhost:3000",
+      "http://3.38.191.18:3000",
       "https://flow-assignment-123.s3.ap-northeast-2.amazonaws.com/index.html",
     ],
     methods: ["GET", "POST", "PATCH", "DELETE"],
@@ -27,8 +30,8 @@ app.use(express.static(path.join(__dirname, "../public")));
 
 // 스웨거 설정
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-
-app.use("/", extensionRoute);
+app.use("/", viewRoutes);
+// app.use("/", extensionRoute);
 
 // 예외 처리
 app.use((err, req, res, next) => {
