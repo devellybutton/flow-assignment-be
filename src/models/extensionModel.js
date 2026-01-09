@@ -4,7 +4,7 @@ class ExtensionModel {
   // 모든 확장자 조회
   static async findAll() {
     const result = await pool.query(
-      "SELECT * FROM extensions ORDER BY is_fixed DESC, name ASC"
+      "SELECT * FROM extensions ORDER BY is_fixed DESC, created_at DESC"
     );
     return result.rows;
   }
