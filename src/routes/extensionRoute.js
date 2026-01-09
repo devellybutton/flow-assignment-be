@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const ExtensionController = require("../controllers/extensionController");
 
-router.get("/", ExtensionController.getAll);
+router.get("/extensions", ExtensionController.getAll);
 
 router.patch("/extensions/fixed", ExtensionController.updateFixedExtension);
 
