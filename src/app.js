@@ -31,7 +31,9 @@ app.use(express.static(path.join(__dirname, "../public")));
 // 스웨거 설정
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use("/", viewRoutes);
-// app.use("/", extensionRoute);
+
+// API 라우터
+app.use("/api", extensionRoute);
 
 // 예외 처리
 app.use((err, req, res, next) => {
