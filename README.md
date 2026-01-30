@@ -9,6 +9,13 @@
 - **사이트**: http://3.38.191.18:3000/
 - **API 문서 (Swagger)**: http://3.38.191.18:3000/api-docs
 
+<details>
+<summary><b>시연 GIF</b></summary>    
+    
+![Image](https://github.com/user-attachments/assets/0c335306-2d59-47c7-b641-dafe4c65f3f5)
+
+</details>
+
 <br/>
 
 ## 기능 개요
